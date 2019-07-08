@@ -21,4 +21,4 @@ yarn-error.log*
 *.sw?
 
 # Data Files
-/app/mail/db/data
+/app/mail/db/data/*.dat

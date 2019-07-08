@@ -1,3 +1,3 @@
 module.exports = [
-    'mail','user'
+    'mail'
 ]

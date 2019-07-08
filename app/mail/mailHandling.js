@@ -3,10 +3,9 @@ const inspect = require('util').inspect
 const fs = require('fs')
 const path = require('path')
 
-var {dbs} = require('./db/store')
+var Store = require('../data/db/store')
 
-console.log(dbs['mail'].name)
-//dbs['mail'].insertRecord({name:"name",user:"name2"})
+var Mail = new Store('mail')
 
 let config = JSON.parse(fs.readFileSync(path.resolve(__dirname,'./settings.json')))
 
@@ -34,14 +33,14 @@ imap.once('ready', function() {
             buffer += chunk.toString('utf8');
           });
           stream.once('end', function() {
-            fs.appendFileSync('./myfile.txt',prefix + 'Parsed header: %s'+ inspect(Imap.parseHeader(buffer)))
+            //fs.appendFileSync('./myfile.txt',prefix + 'Parsed header: %s'+ inspect(Imap.parseHeader(buffer)))
           });
         });
         msg.once('attributes', function(attrs) {
-          fs.appendFileSync('./myfile.txt',prefix + 'Attributes: %s' + inspect(attrs, false, 8))
+          //fs.appendFileSync('./myfile.txt',prefix + 'Attributes: %s' + inspect(attrs, false, 8))
         });
         msg.once('end', function() {
-          fs.appendFileSync('./myfile.txt',prefix + 'Finished')
+          //fs.appendFileSync('./myfile.txt',prefix + 'Finished')
         });
       });
       f.once('error', function(err) {
@@ -69,7 +68,7 @@ imap.once('ready', function() {
 
 function imapConnect(callback){
     try{
-        console.log('connnected')
+        console.log('connected')
         imap.connect()
     } catch (e){
         console.log(e)
