@@ -1,14 +1,19 @@
 {
   "name": "mailmedo",
   "version": "0.1.0",
+  "main": "main.js",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "electron": "npm run build && electron .",
+    "elec": "nodemon --exec .\\node_modules\\electron\\dist\\electron.exe ."
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "imap": "^0.8.19",
+    "nedb": "^1.8.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -16,6 +21,7 @@
     "@vue/cli-plugin-eslint": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "babel-eslint": "^10.0.1",
+    "electron": "^5.0.6",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.6.10"

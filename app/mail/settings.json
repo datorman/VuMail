@@ -1,0 +1,10 @@
+{
+    "user": "mikeshutov1990@outlook.com",
+    "password": "Mi7490ke!",
+    "host": "imap-mail.outlook.com",
+    "port": 993,
+    "tls": true,
+    "authTimeout": 5000,
+    "tlsOptions": { 
+        "rejectUnauthorized": false }
+}
