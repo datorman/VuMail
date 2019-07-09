@@ -12,7 +12,6 @@ function createWindow () {
 
   imapConnect(() => {
     appReady = true
-    console.log(appReady)
   })
   // Create the browser window.
   win = new BrowserWindow({

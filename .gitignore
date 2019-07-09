@@ -22,3 +22,4 @@ yarn-error.log*
 
 # Data Files
 /app/mail/db/data/*.dat
+/app/mail/settings.json

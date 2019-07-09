@@ -6,5 +6,11 @@
     "tls": true,
     "authTimeout": 5000,
     "tlsOptions": { 
-        "rejectUnauthorized": false }
+        "rejectUnauthorized": false 
+    },
+    "keepalive": {
+        "interval": 9000,
+        "idleInterval": 200000,
+        "forceNoop": true
+    }
 }

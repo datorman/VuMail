@@ -12,16 +12,14 @@ class Store{
     }
     findRecord(queryObject, successCallback, errorCallback){
         var database = this.db
-        var preparedQuery = {
-
-        }
+        var preparedQuery = queryObject
         try{
             database.findOne(preparedQuery, (err,doc) => {
                 if(err){
                     throw new Error('Error occured while searching for record.')
                 }
                 if(successCallback){
-                    successCallback(docs)
+                    successCallback(doc)
                 }   
             })
         }catch(err){

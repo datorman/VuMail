@@ -15,7 +15,16 @@ var Connection = new ImapConnection(config)
 function imapConnect(){
     Connection.imapConnect()
     Connection.imap.on('ready', () => {
-        Connection.fetchMailBox('INBOX')
+        Connection.fetchMailBox('INBOX', function(emails){
+            emails.map((email) => {
+                Mail.findRecord({remoteReference:email.remoteReference}, (doc) => {
+                    if(!doc){
+                        Mail.insertRecord(email)
+                    }
+                })
+            })
+            
+        })
     })
 }
 module.exports = {
