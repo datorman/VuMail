@@ -30,8 +30,7 @@ class Store{
     }
     findRecords(queryObject, successCallback, errorCallback){
         var database = this.db
-        var preparedQuery = {
-        }
+        var preparedQuery = queryObject
         try{
             database.find(preparedQuery,(err,docs) => {
                 if(err){

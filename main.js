@@ -1,18 +1,20 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow , ipcMain} = require('electron')
 
-const {imapConnect} = require('./app/mail/mailHandling')
-
+const {imapConnect,initMailboxes} = require('./app/mail/mailHandling')
 // Window
 let win
 let appReady = false
+
+global.sharedObj = {}
+global.sharedObj = {
+  accounts:{}
+}
+global.sharedObj = {
+  mail:{}
+}
   
 
 function createWindow () {
-  console.log(appReady)
-
-  imapConnect(() => {
-    appReady = true
-  })
   // Create the browser window.
   win = new BrowserWindow({
     width: 800,
@@ -21,9 +23,14 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-
   // and load the index.html of the app.
   win.loadFile('./dist/index.html')
+
+  console.log(appReady)
+  initMailboxes();
+  imapConnect(() => {
+    appReady = true
+  })
 
   // Open the DevTools.
   win.webContents.openDevTools()
@@ -35,6 +42,7 @@ function createWindow () {
     // when you should delete the corresponding element.
     win = null
   })
+
 }
 
 // This method will be called when Electron has finished
