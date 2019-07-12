@@ -19,8 +19,6 @@ function addAccount(){
         accountName: "Connection Name",
         connectionType:"Imap",
         settings:{
-            "user": "mikeshutov1990@outlook.com",
-            "password": "Mi7490ke!",
             "host": "imap-mail.outlook.com",
             "port": 993,
             "tls": true,
